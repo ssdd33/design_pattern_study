@@ -4,12 +4,12 @@
 */
 
 abstract class Duck {
-  final QuackBehavior quackBehaivor;
-  final FlyBehavior flyBehavior;
-  Duck({
-    required this.quackBehaivor,
-    required this.flyBehavior,
-  });
+  QuackBehavior _quackBehaivor;
+  FlyBehavior _flyBehavior;
+  Duck(
+    this._quackBehaivor,
+    this._flyBehavior,
+  );
 
   void swim() {
     print('swim');
@@ -18,17 +18,16 @@ abstract class Duck {
   void display();
 
   void performQuack() {
-    quackBehaivor.quack();
+    _quackBehaivor.quack();
   }
 
   void performFly() {
-    flyBehavior.fly();
+    _flyBehavior.fly();
   }
 
-  void set quackBehaivor(QuackBehavior newQuackBehavior) =>
-      quackBehaivor = newQuackBehavior;
-  void set flyBehavior(FlyBehavior newFlyBehavior) =>
-      flyBehavior = newFlyBehavior;
+  void set quackBehaivor(QuackBehavior quackBehavior) =>
+      _quackBehaivor = quackBehavior;
+  void set flyBehavior(FlyBehavior flyBehavior) => _flyBehavior = flyBehavior;
 }
 
 abstract class QuackBehavior {
@@ -63,12 +62,12 @@ class FlyWithWings extends FlyBehavior {
 class FlyNoWay extends FlyBehavior {
   @override
   void fly() {
-    return null;
+    print("just try but fail..");
   }
 }
 
 class MalladDuck extends Duck {
-  MalladDuck() : super(quackBehaivor: Quack(), flyBehavior: FlyWithWings());
+  MalladDuck() : super(Quack(), FlyWithWings());
 
   @override
   void display() {
@@ -77,7 +76,7 @@ class MalladDuck extends Duck {
 }
 
 class DecoyDuck extends Duck {
-  DecoyDuck() : super(quackBehaivor: Squack(), flyBehavior: FlyNoWay());
+  DecoyDuck() : super(Squack(), FlyNoWay());
 
   @override
   void display() {
