@@ -1,4 +1,4 @@
-import 'package:design_pattern_study/examples/ch1/ocp.dart';
+import 'package:design_pattern_study/examples/ch1/strategy_pattern.dart';
 
 void main() {
   Duck decoyDuck = DecoyDuck();
