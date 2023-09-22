@@ -1,5 +1,11 @@
 import 'package:design_pattern_study/examples/2_observer_pattern/interface.dart';
 
+/*
+- 옵저버 패턴은 한 객체의 상태가 바뀌면 그 객체에 의존하는 다른 객체에게 연락이 가고 자동으로 내용이 갱신되는 방식으로 일대다(one-to-many)의존성을 정의한다.
+- 상호작용하는 객체 사이에는 가능하면 느슨한 결합을 사용해야 한다. 
+- 느슨하게 결한하는 디자인을 사용하면 변경 사항이 생겨도 무난히 처리할 수 있는 유연한 객체지향 시스템을 구축할 수 있다. 객체 사이의 상호의존성을 최소화 할 수 있기 때문이다.
+*/
+
 class WeatherStation {
   WeatherData weatherData = WeatherData();
   late Observer currentConditionDisplay;
